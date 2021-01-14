@@ -2,60 +2,368 @@
 
     Sub Main()
 
-        Dim Input As Object
+        Randomize()
 
-        Console.WriteLine("Welcome to DiceRoller™ would you like to create a new character?")
-        Console.WriteLine("Enter Y to start rolling up a new character")
+        Dim Retire = 0
+        Dim PlayerClass As String = "Undecided"
+        Dim StatsReady As Boolean = False
+        Dim Repeat As Integer = True
 
-        Input = Console.Read()
-        Console.WriteLine(Input)
+        Dim RollA As Integer = 0
+        Dim RollB As Integer = 0
+        Dim RollC As Integer = 0
+        Dim StatA As Integer = 0
+        Dim StatB As Integer = 0
+        Dim StatC As Integer = 0
 
-        While True
-            If Input = 89 Or Input = 121 Then
+        Dim Strength As Integer = 0
+        Dim Agility As Integer = 0
+        Dim Smarts As Integer = 0
+
+
+        'First while loop is class selection'
+        While PlayerClass = "Undecided"
+
+            Console.WriteLine("Welcome to DiceRoller(TM)")
+            Console.WriteLine("Press 'Enter' to start rolling up a new character")
+
+            If Console.ReadKey.Key = ConsoleKey.Enter Then
 
                 Console.Write("Great!")
                 System.Threading.Thread.Sleep(1000)
 
                 Console.Clear()
-
                 Console.WriteLine("First off you need to choose a class")
-
-            Else
-
-                Console.WriteLine("Come on...")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("You seriously can't press y...")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("Jesus...")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("Ok, just don't mess it up this time...")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("Ready?")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("You can do this, I belive in you")
-                System.Threading.Thread.Sleep(2000)
-                Console.WriteLine("Just Press Y")
                 System.Threading.Thread.Sleep(2000)
                 Console.Clear()
 
-                Console.WriteLine("Welcome to DiceRoller™ would you like to create a new character?")
-                Console.WriteLine("Enter Y to start rolling up a new character")
 
-                Input = Console.Read()
-                Console.WriteLine(Input)
+                'Character Selection'
+                While PlayerClass = "Undecided"
 
-                If Input <> 89 Or Input <> 121 Then
+                    Console.WriteLine("Press the coresponding key to choose your class...")
+                    Console.WriteLine("1. Soldier: Sword & Sheild just can't be beat.")
+                    Console.WriteLine("2. Mage: ...Fireball")
+                    Console.WriteLine("3. Rouge: MMMM Juicy Damage")
+
+                    Select Case Console.ReadKey.Key
+
+                        'Soldier Class'
+                        Case ConsoleKey.D1
+
+                            PlayerClass = "Soldier"
+
+                            Console.Clear()
+                            Console.Write("You have chosen ")
+                            Console.Write(PlayerClass)
+
+                            System.Threading.Thread.Sleep(1000)
+
+                            Console.WriteLine("")
+                            Console.WriteLine("Are you sure?")
+                            Console.WriteLine("Y - N")
+
+                            Select Case Console.ReadKey.Key
+
+                                Case ConsoleKey.Y
+
+                                    Console.Clear()
+                                    Console.Write("Great! Now we can start rolling up stats!")
+                                    System.Threading.Thread.Sleep(3000)
+                                    Console.Clear()
+
+                                Case ConsoleKey.N
+
+                                    Console.Clear()
+                                    PlayerClass = "Undecided"
+
+                            End Select
+
+                        'Mage Class'
+                        Case ConsoleKey.D2
+
+                            PlayerClass = "Mage"
+
+                            Console.Clear()
+                            Console.Write("You have chosen ")
+                            Console.Write(PlayerClass)
+
+                            System.Threading.Thread.Sleep(1000)
+
+                            Console.WriteLine("")
+                            Console.WriteLine("Are you sure?")
+                            Console.WriteLine("Y - N")
+
+                            Select Case Console.ReadKey.Key
+
+                                Case ConsoleKey.Y
+
+                                    Console.Clear()
+                                    Console.Write("Great! Now we can start rolling up stats!")
+                                    System.Threading.Thread.Sleep(3000)
+                                    Console.Clear()
+
+                                Case ConsoleKey.N
+
+                                    Console.Clear()
+                                    PlayerClass = "Undecided"
+
+                            End Select
+
+                        'Rouge Class'
+                        Case ConsoleKey.D3
+
+                            PlayerClass = "Rouge"
+
+                            Console.Clear()
+                            Console.Write("You have chosen ")
+                            Console.Write(PlayerClass)
+
+                            System.Threading.Thread.Sleep(1000)
+
+                            Console.WriteLine("")
+                            Console.WriteLine("Are you sure?")
+                            Console.WriteLine("Y - N")
+
+                            Select Case Console.ReadKey.Key
+
+                                Case ConsoleKey.Y
+
+                                    Console.Clear()
+                                    Console.Write("Great! Now we can start rolling up stats!")
+                                    System.Threading.Thread.Sleep(3000)
+                                    Console.Clear()
+
+                                Case ConsoleKey.N
+
+                                    Console.Clear()
+                                    PlayerClass = "Undecided"
+
+                            End Select
+
+                        Case Else
+
+                            Console.Clear()
+                            Console.Write("Please choose a valid class...")
+                            System.Threading.Thread.Sleep(2000)
+                            Console.Clear()
+
+                    End Select
+
+                End While
+
+            Else
+
+                'Angry computer bit'
+                Retire = Retire + 1
+
+                If Retire > 1 Then
 
                     Console.Clear()
                     Console.WriteLine("God dammit...")
                     System.Threading.Thread.Sleep(2000)
-                    Console.WriteLine("Im done...")
+                    Console.WriteLine("Im done")
                     System.Threading.Thread.Sleep(2000)
                     End
+
+                Else
+
+                    Console.Clear()
+                    Console.WriteLine("Come on...")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("You seriously can't press Enter?")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("Jesus...")
+                    System.Threading.Thread.Sleep(2000)
+
+                    Console.Clear()
+
+                    Console.WriteLine("Ok i'm going to give you another chance, just don't mess it up this time...")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("Ready?")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("You can do this, I belive in you")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("Just press ENTER")
+                    System.Threading.Thread.Sleep(2000)
+                    Console.Clear()
 
                 End If
 
             End If
+
+        End While
+
+        'Rolling Stats'
+        While StatsReady = False
+
+            Console.WriteLine("You have 3 different stats...")
+            System.Threading.Thread.Sleep(1000)
+            Console.WriteLine("Strength: Physical attack power and health.")
+            System.Threading.Thread.Sleep(1000)
+            Console.WriteLine("Agility: Movement Speed and evasiveness.")
+            System.Threading.Thread.Sleep(1000)
+            Console.WriteLine("Smarts: Intelectual ability and perceptiveness.")
+            System.Threading.Thread.Sleep(3000)
+
+            Console.WriteLine("")
+            Console.WriteLine("Got that? Good, are you ready for numbers?")
+            Console.WriteLine("Y - N")
+
+            If Console.ReadKey.Key = ConsoleKey.Y Then
+
+                Console.Clear()
+                Console.WriteLine("Perfect, lets go!")
+                System.Threading.Thread.Sleep(1500)
+                Console.Clear()
+
+            Else
+
+                Console.Clear()
+                Console.WriteLine("Ok, I can wait...")
+                System.Threading.Thread.Sleep(2000)
+                Console.WriteLine("No no, Please, take your time...")
+                System.Threading.Thread.Sleep(4000)
+                Console.WriteLine("Just uhhh, hit Y when your ready...")
+                System.Threading.Thread.Sleep(5000)
+                Console.WriteLine("No rush...")
+                System.Threading.Thread.Sleep(2000)
+                Console.WriteLine("None at all...")
+                System.Threading.Thread.Sleep(3000)
+                Console.WriteLine("Just gunna wait here")
+                System.Threading.Thread.Sleep(4000)
+                Console.WriteLine("Just chillin...")
+
+                While Console.ReadKey.Key <> ConsoleKey.Y
+
+                End While
+
+                Console.Clear()
+                Console.WriteLine("Ahh! Your ready, great! Lets roll some stats")
+                System.Threading.Thread.Sleep(2000)
+                Console.Clear()
+
+            End If
+
+            Console.Write("Your first rolls are... ")
+            System.Threading.Thread.Sleep(1000)
+            Console.Write("Clunk, Clunk, Clunk, Clunk,,,")
+            Console.WriteLine(" ")
+            System.Threading.Thread.Sleep(1000)
+
+            While Repeat = True
+
+                RollA = VBMath.Rnd * 6 + 1
+                RollB = VBMath.Rnd * 6 + 1
+                RollC = VBMath.Rnd * 6 + 1
+                StatA = RollA + RollB + RollC
+
+                Console.Write(RollA)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollB)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollC)
+                System.Threading.Thread.Sleep(250)
+                Console.WriteLine("...")
+                System.Threading.Thread.Sleep(500)
+                Console.Write("For a total of ")
+                System.Threading.Thread.Sleep(1000)
+                Console.WriteLine(StatA)
+
+                RollA = VBMath.Rnd * 6 + 1
+                RollB = VBMath.Rnd * 6 + 1
+                RollC = VBMath.Rnd * 6 + 1
+                StatB = RollA + RollB + RollC
+
+                System.Threading.Thread.Sleep(2000)
+                Console.WriteLine("")
+                Console.WriteLine("Next is...")
+                System.Threading.Thread.Sleep(2000)
+                Console.Write(RollA)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollB)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollC)
+                System.Threading.Thread.Sleep(250)
+                Console.WriteLine("...")
+                System.Threading.Thread.Sleep(500)
+                Console.Write("For a total of ")
+                System.Threading.Thread.Sleep(1000)
+                Console.WriteLine(StatB)
+
+                RollA = VBMath.Rnd * 6 + 1
+                RollB = VBMath.Rnd * 6 + 1
+                RollC = VBMath.Rnd * 6 + 1
+                StatC = RollA + RollB + RollC
+
+                System.Threading.Thread.Sleep(2000)
+                Console.WriteLine(" ")
+                Console.WriteLine("And finally...")
+                System.Threading.Thread.Sleep(2000)
+                Console.Write(RollA)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollB)
+                System.Threading.Thread.Sleep(250)
+                Console.Write(" + ")
+                System.Threading.Thread.Sleep(250)
+                Console.Write(RollC)
+                System.Threading.Thread.Sleep(250)
+                Console.WriteLine("...")
+                System.Threading.Thread.Sleep(500)
+                Console.Write("For a total of ")
+                System.Threading.Thread.Sleep(1000)
+                Console.WriteLine(StatC)
+
+                Console.Write("Alright, so we have: ")
+                System.Threading.Thread.Sleep(500)
+                Console.Write(StatA)
+                Console.Write(", ")
+                System.Threading.Thread.Sleep(500)
+                Console.Write(StatB)
+                Console.Write(", and ")
+                System.Threading.Thread.Sleep(500)
+                Console.Write(StatC)
+                Console.WriteLine(".")
+
+                System.Threading.Thread.Sleep(2000)
+                Console.WriteLine(" ")
+                Console.WriteLine("Do you want to keep these stats?")
+                Console.WriteLine("Y - N")
+
+                Select Case Console.ReadKey.Key
+
+                    Case ConsoleKey.Y
+
+                        Console.Clear()
+                        Console.WriteLine("Awesome! Now, which one belongs where?")
+                        System.Threading.Thread.Sleep(1500)
+                        Console.Clear()
+                        Repeat = False
+
+                    Case ConsoleKey.N
+
+                        Console.Clear()
+                        Console.WriteLine("Alright, lets try this again...")
+                        System.Threading.Thread.Sleep(1500)
+                        Repeat = True
+
+                End Select
+
+            End While
+
+            Console.Write("REEEEEEEEE")
+            Console.ReadKey()
+
         End While
 
     End Sub
