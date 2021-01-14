@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{71C2E22E-B4BB-4D38-AE8F-4BCF9619FFB3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Dice_Roller.Module1</StartupObject>
+    <StartupObject>Dice_Roller.DiceRoller</StartupObject>
     <RootNamespace>Dice_Roller</RootNamespace>
     <AssemblyName>Dice Roller</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="DiceRoller.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
