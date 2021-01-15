@@ -6,8 +6,10 @@
 
         Dim Retire = 0
         Dim PlayerClass As String = "Undecided"
+        Dim PlayerGold As Integer = 0
         Dim StatsReady As Boolean = False
-        Dim Repeat As Integer = True
+        Dim Repeat As Boolean = True
+        Dim Repeat2 As Boolean = True
 
         Dim RollA As Integer = 0
         Dim RollB As Integer = 0
@@ -24,7 +26,7 @@
         'First while loop is class selection'
         While PlayerClass = "Undecided"
 
-            Console.WriteLine("Welcome to DiceRoller(TM)")
+            Console.WriteLine("Welcome to DiceRoller(TM) Introduction")
             Console.WriteLine("Press 'Enter' to start rolling up a new character")
 
             If Console.ReadKey.Key = ConsoleKey.Enter Then
@@ -170,20 +172,20 @@
 
                     Console.Clear()
                     Console.WriteLine("Come on...")
-                    System.Threading.Thread.Sleep(2000)
+                    System.Threading.Thread.Sleep(2500)
                     Console.WriteLine("You seriously can't press Enter?")
-                    System.Threading.Thread.Sleep(2000)
+                    System.Threading.Thread.Sleep(2500)
                     Console.WriteLine("Jesus...")
-                    System.Threading.Thread.Sleep(2000)
+                    System.Threading.Thread.Sleep(4000)
 
                     Console.Clear()
 
-                    Console.WriteLine("Ok i'm going to give you another chance, just don't mess it up this time...")
-                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("Ok, i'm going to give you another chance, just don't mess it up this time...")
+                    System.Threading.Thread.Sleep(3000)
                     Console.WriteLine("Ready?")
                     System.Threading.Thread.Sleep(2000)
                     Console.WriteLine("You can do this, I belive in you")
-                    System.Threading.Thread.Sleep(2000)
+                    System.Threading.Thread.Sleep(2500)
                     Console.WriteLine("Just press ENTER")
                     System.Threading.Thread.Sleep(2000)
                     Console.Clear()
@@ -247,8 +249,7 @@
 
             Console.Write("Your first rolls are... ")
             System.Threading.Thread.Sleep(1000)
-            Console.Write("Clunk, Clunk, Clunk, Clunk,,,")
-            Console.WriteLine(" ")
+            Console.Write("Clunk, Clunk, Clunk, Clunk," & vbNewLine)
             System.Threading.Thread.Sleep(1000)
 
             While Repeat = True
@@ -361,10 +362,321 @@
 
             End While
 
-            Console.Write("REEEEEEEEE")
-            Console.ReadKey()
+            Repeat = True
+
+LineOne:
+
+            Strength = 0
+            Agility = 0
+            Smarts = 0
+
+            'Allocating Stats'
+            While Repeat = True
+
+                'Stat A'
+                While Repeat2 = True
+
+                    Console.Clear()
+                    Console.Write("Your Stats: ")
+                    System.Threading.Thread.Sleep(500)
+                    Console.Write(StatA)
+                    Console.Write(", ")
+                    System.Threading.Thread.Sleep(500)
+                    Console.Write(StatB)
+                    Console.Write(", and ")
+                    System.Threading.Thread.Sleep(500)
+                    Console.Write(StatC)
+                    Console.WriteLine(".")
+
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("So, what do we want the " & StatA & " to be?")
+                    System.Threading.Thread.Sleep(2000)
+
+                    Console.WriteLine(" ")
+                    Console.Write("1. Strength" & vbNewLine & "2. Agility" & vbNewLine & "3. Smarts")
+
+                    Select Case Console.ReadKey.Key
+
+                        Case ConsoleKey.D1
+
+                            Console.WriteLine(" ")
+                            Console.WriteLine("Alright, Strength it is...")
+                            System.Threading.Thread.Sleep(1500)
+                            Strength = StatA
+                            Repeat2 = False
+
+                        Case ConsoleKey.D2
+
+                            Console.WriteLine(" ")
+                            Console.WriteLine("Alright, Agility it is...")
+                            System.Threading.Thread.Sleep(1500)
+                            Agility = StatA
+                            Repeat2 = False
+
+                        Case ConsoleKey.D3
+
+                            Console.WriteLine(" ")
+                            Console.WriteLine("Alright, Smarts it is...")
+                            System.Threading.Thread.Sleep(1500)
+                            Smarts = StatA
+                            Repeat2 = False
+
+                        Case Else
+
+                            Console.WriteLine(" ")
+                            Console.WriteLine("Please choose a valid stat.")
+                            Repeat2 = True
+
+                    End Select
+
+                End While
+
+                Repeat2 = True
+
+                'Stat B'
+                While Repeat2 = True
+
+                    Console.Clear()
+                    Console.Write("Your Remaining Stats: ")
+                    System.Threading.Thread.Sleep(500)
+                    Console.Write(StatB)
+                    Console.Write(" and ")
+                    System.Threading.Thread.Sleep(500)
+                    Console.Write(StatC)
+                    Console.WriteLine(".")
+
+                    System.Threading.Thread.Sleep(2000)
+                    Console.WriteLine("So, what do we want the " & StatB & " to be?")
+                    System.Threading.Thread.Sleep(2000)
+
+                    Console.Write(vbNewLine & "1. Strength" & vbNewLine & "2. Agility" & vbNewLine & "3. Smarts")
+
+                    Select Case Console.ReadKey.Key
+
+                        Case ConsoleKey.D1
+
+                            If Strength = 0 Then
+
+                                Console.WriteLine(" ")
+                                Console.WriteLine("Alright, Strength it is...")
+                                System.Threading.Thread.Sleep(1500)
+                                Strength = StatB
+                                Repeat2 = False
+
+                            Else
+
+                                Console.Clear()
+                                Console.WriteLine("Please choose a new Stat...")
+                                System.Threading.Thread.Sleep(1500)
+                                Repeat2 = True
+
+                            End If
+
+                        Case ConsoleKey.D2
+
+
+                            If Agility = 0 Then
+
+                                Console.WriteLine(" ")
+                                Console.WriteLine("Alright, Agility it is...")
+                                System.Threading.Thread.Sleep(1500)
+                                Agility = StatB
+                                Repeat2 = False
+
+                            Else
+
+                                Console.Clear()
+                                Console.WriteLine("Please choose a new Stat...")
+                                System.Threading.Thread.Sleep(1500)
+                                Repeat2 = True
+
+                            End If
+
+                        Case ConsoleKey.D3
+
+                            If Smarts = 0 Then
+
+                                Console.WriteLine(" ")
+                                Console.WriteLine("Alright, Smarts it is...")
+                                System.Threading.Thread.Sleep(1500)
+                                Smarts = StatB
+                                Repeat2 = False
+
+                            Else
+
+                                Console.WriteLine("Please choose a new Stat...")
+                                System.Threading.Thread.Sleep(1500)
+                                Repeat2 = True
+
+                            End If
+
+                        Case Else
+
+                            Console.WriteLine(" ")
+                            Console.WriteLine("Please choose a valid stat.")
+                            Repeat2 = True
+
+                    End Select
+
+                End While
+
+                Repeat2 = True
+
+                'Stat C'
+                Console.Clear()
+                Console.Write("Your Remaining Stats: ")
+                System.Threading.Thread.Sleep(500)
+                Console.WriteLine(StatC & ".")
+                System.Threading.Thread.Sleep(1500)
+
+                Console.Write(vbNewLine & "So that leaves: ")
+                System.Threading.Thread.Sleep(500)
+
+                'Choose the remainging stat'
+                If Strength = 0 Then
+
+                    Console.Write("Strength")
+                    Strength = StatC
+
+                Else
+
+                    If Agility = 0 Then
+
+                        Console.Write("Aglility")
+                        Agility = StatC
+
+                    Else
+
+                        Console.Write("Smarts")
+                        Smarts = StatC
+
+                    End If
+
+                End If
+
+                System.Threading.Thread.Sleep(2000)
+
+                Console.Clear()
+                Console.WriteLine("Your current stats are:" & vbNewLine & "Strength: " & Strength & vbNewLine & "Agility: " & Agility & vbNewLine & "Smarts: " & Smarts)
+                Console.WriteLine(vbNewLine & "Are you happy with these stats?" & vbNewLine & "Y - N")
+
+                While Repeat2 = True
+
+                    Select Case Console.ReadKey.Key
+
+                        Case = ConsoleKey.Y
+
+                            Console.Clear()
+                            Console.WriteLine("Nice, now what was next?")
+                            System.Threading.Thread.Sleep(4000)
+                            Repeat2 = False
+                            StatsReady = True
+
+                        Case = ConsoleKey.N
+
+                            Console.Clear()
+                            Console.WriteLine("Alright, lets try this again...")
+                            System.Threading.Thread.Sleep(3000)
+                            Repeat2 = False
+                            StatsReady = False
+                            Console.Clear()
+                            GoTo LineOne
+
+                        Case Else
+
+                            Console.Clear()
+                            Console.WriteLine("Y or N pal...")
+                            System.Threading.Thread.Sleep(3000)
+                            Repeat2 = True
+                            Console.Clear()
+
+                    End Select
+
+                End While
+
+            End While
 
         End While
+
+        Repeat = True
+        Repeat2 = True
+        Retire = 0
+
+        'Rolling Gold'
+        While Repeat = True
+
+            Console.Clear()
+            Console.WriteLine("Now, to get anywhere in this world you're going to need gold.")
+            System.Threading.Thread.Sleep(2000)
+            Console.WriteLine("Gold is 10 10D")
+            System.Threading.Thread.Sleep(1500)
+
+            Console.WriteLine("Clunk, Clunk, Clunk, Clunk, Clunk, Clunk, Clunk, Clunk, Clunk.")
+
+            While Retire < 10
+
+                Console.Write("Clunk, ")
+                System.Threading.Thread.Sleep(250)
+                Retire = Retire + 1
+
+            End While
+
+            Retire = 0
+
+            System.Threading.Thread.Sleep(1000)
+            Console.Write(".")
+            System.Threading.Thread.Sleep(1000)
+            Console.Write(".")
+            System.Threading.Thread.Sleep(1000)
+            Console.WriteLine(".")
+
+            While Repeat2 = True
+
+                Retire = Retire + 1
+                RollA = VBMath.Rnd * 10
+                PlayerGold = RollA + PlayerGold
+
+                'Write out the roll and + or just the roll on the last roll
+                If Retire = 10 Then
+
+                    Console.WriteLine(RollA)
+
+                Else
+
+                    Console.WriteLine(RollA & " + ")
+
+                End If
+
+                'Stop after 10 rolls'
+                If Retire > 10 Then
+
+                    Repeat2 = False
+
+                End If
+
+                System.Threading.Thread.Sleep(1000)
+
+            End While
+
+            Console.Write("For a grand total of... ")
+            System.Threading.Thread.Sleep(3000)
+            Console.WriteLine(PlayerGold)
+            System.Threading.Thread.Sleep(1000)
+
+            Console.WriteLine(vbNewLine & "Sorry, no redos on this one...")
+            System.Threading.Thread.Sleep(2000)
+
+            Console.Clear()
+            Console.WriteLine("Alright... I think you're all set....")
+            System.Threading.Thread.Sleep(4000)
+            Console.WriteLine("Let the adventure begin!")
+            System.Threading.Thread.Sleep(4000)
+
+        End While
+
+        Console.Clear()
+        Console.Write("<End Player Create>")
+        Console.ReadKey()
 
     End Sub
 

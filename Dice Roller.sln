@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Dice Roller", "Dice Roller\Dice Roller.vbproj", "{71C2E22E-B4BB-4D38-AE8F-4BCF9619FFB3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFD97F43-3DF7-45FF-B1BD-1D926FC4AC4E}"
+	ProjectSection(SolutionItems) = preProject
+		Player Create.vb = Player Create.vb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
