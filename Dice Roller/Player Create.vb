@@ -31,7 +31,8 @@ Module PlayerCreate
         'First while loop is class selection'
         While PlayerClass = "Undecided"
 
-            Console.WriteLine("Welcome to DiceRoller(TM) Introduction")
+            Console.Clear()
+            Console.WriteLine("Welcome to DiceRoller(TM) Player Creation" & vbNewLine & "My name is Peter, I will be helping you prepare your character today...")
             Console.WriteLine("Press 'Enter' to start rolling up a new character")
 
             If Console.ReadKey.Key = ConsoleKey.Enter Then
@@ -187,6 +188,8 @@ Module PlayerCreate
 
                     Console.WriteLine("Ok, i'm going to give you another chance, just don't mess it up this time...")
                     System.Threading.Thread.Sleep(3000)
+                    Console.WriteLine("Well, just take it from the top...")
+                    System.Threading.Thread.Sleep(2000)
                     Console.WriteLine("Ready?")
                     System.Threading.Thread.Sleep(2000)
                     Console.WriteLine("You can do this, I belive in you")
@@ -634,7 +637,7 @@ LineOne:
             While Retire < 10
 
                 Console.Write("Clunk, ")
-                System.Threading.Thread.Sleep(200)
+                System.Threading.Thread.Sleep(100)
                 Retire = Retire + 1
 
             End While
@@ -759,6 +762,7 @@ LineOne:
         Dim sr As New StreamWriter("PlayerStats.txt")
 
         sr.WriteLine(PlayerClass)
+        sr.WriteLine(PlayerLevel)
         sr.WriteLine(Strength)
         sr.WriteLine(Agility)
         sr.WriteLine(Smarts)
@@ -775,11 +779,6 @@ LineOne:
         sr2.WriteLine("<Empty>")
 
         sr2.Close()
-
-        'Stength
-        'Agility
-        'Smarts
-        'PlayerHealthMax
 
         Console.Clear()
         Console.WriteLine("<End Player Create>")
