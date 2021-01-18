@@ -149,12 +149,38 @@ Module PlayerCreate
 
                             End Select
 
+                        Case ConsoleKey.DownArrow
+
+                            Console.WriteLine("DebugSkip activated")
+                            Console.WriteLine("1. Soldier")
+                            Console.WriteLine("2. Mage")
+                            Console.WriteLine("3. Rouge")
+
+                            Select Case Console.ReadKey.Key
+                                Case ConsoleKey.D1
+                                    PlayerClass = "Soldier"
+                                Case ConsoleKey.D2
+                                    PlayerClass = "Mage"
+                                Case ConsoleKey.D3
+                                    PlayerClass = "Rouge"
+                                Case Else
+                                    PlayerClass = "Soldier"
+                            End Select
+
+                            Strength = 18
+                            Agility = 18
+                            Smarts = 18
+                            PlayerGold = 100
+
+                            GoTo LineSkip
+
                         Case Else
 
                             Console.Clear()
                             Console.Write("Please choose a valid class...")
                             System.Threading.Thread.Sleep(2000)
                             Console.Clear()
+
 
                     End Select
 
@@ -705,6 +731,8 @@ LineOne:
             Repeat5 = False
 
         End While
+
+LineSkip:
 
         'Calculating Health'
         Dim PlayerHealthMax As Integer = 0

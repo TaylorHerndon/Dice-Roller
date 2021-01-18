@@ -3,8 +3,8 @@ Imports System.IO
 Module DiceRoller
     Sub Main()
 
-        Dim PlayerStatsFile As New StreamReader("PlayerStats.txt")
-        Dim PlayerInventoryFile As New StreamReader("PlayerInv.txt")
+        Dim PlayerStatsFileTemp As New StreamReader("PlayerStats.txt")
+        Dim PlayerInventoryFileTemp As New StreamReader("PlayerInv.txt")
 
         Dim Index As Integer = 0
         Dim PlayerStatsArray(5)
@@ -16,21 +16,24 @@ Module DiceRoller
         Dim Agility = 0
         Dim Smarts = 0
 
-        Do Until PlayerStatsFile.Peek = -1
+        Do Until PlayerStatsFileTemp.Peek = -1
 
-            PlayerStatsArray(Index) = PlayerStatsFile.ReadLine()
+            PlayerStatsArray(Index) = PlayerStatsFileTemp.ReadLine()
             Index = Index + 1
 
         Loop
 
         Index = 0
 
-        Do Until PlayerInventoryFile.Peek = -1
+        Do Until PlayerInventoryFileTemp.Peek = -1
 
-            PlayerInventoryArray(Index) = PlayerInventoryFile.ReadLine()
+            PlayerInventoryArray(Index) = PlayerInventoryFileTemp.ReadLine()
             Index = Index + 1
 
         Loop
+
+        PlayerStatsFileTemp.Close()
+        PlayerInventoryFileTemp.Close()
 
 LineTitle:
 
@@ -108,6 +111,9 @@ LinePlayerOverwrite:
         End Select
 
         Index = 0
+
+        Dim PlayerStatsFile As New StreamReader("PlayerStats.txt")
+        Dim PlayerInventoryFIle As New StreamReader("PlayerStats.txt")
 
         Do Until PlayerStatsFile.Peek = -1
 
